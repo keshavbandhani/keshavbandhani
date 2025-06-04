@@ -1,0 +1,80 @@
+keshav-portfolio/
+│
+├── app.py
+├── templates/
+│   ├── index.html
+│   ├── about.html
+│   └── contact.html
+├── static/
+│   └── style.css
+├── requirements.txt
+└── README.md
+
+from flask import Flask, render_template
+
+app = Flask(__name__)
+main python file
+@app.route("/")
+def home():
+    return render_template("index.html")
+
+@app.route("/about")
+def about():
+    return render_template("about.html")
+
+@app.route("/contact")
+def contact():
+    return render_template("contact.html")
+
+if __name__ == "__main__":
+    app.run(debug=True)
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Keshav Portfolio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Hi, I'm Keshav!</h1>
+    <p>Welcome to my portfolio website built with Flask.</p>
+    <nav>
+        <a href="/">Home</a> |
+        <a href="/about">About</a> |
+        <a href="/contact">Contact</a>
+    </nav>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>About - Keshav</title>
+</head>
+<body>
+    <h1>About Me</h1>
+    <p>I am a Python developer and aspiring ethical hacker. This is my Flask portfolio website.</p>
+    <a href="/">Back to Home</a>
+</body>
+</html>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Contact - Keshav</title>
+</head>
+<body>
+    <h1>Contact</h1>
+    <p>You can reach me at: <strong>keshav@example.com</strong></p>
+    <a href="/">Back to Home</a>
+</body>
+</html>
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    text-align: center;
+    padding: 20px;
+}
+
+nav a {
+    margin: 10px;
+    text-decoration: none;
+    color: #007BFF;
+}
